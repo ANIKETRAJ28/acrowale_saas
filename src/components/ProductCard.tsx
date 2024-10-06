@@ -4,7 +4,9 @@ import axios from "axios";
 import Image from "next/image"
 import { useState } from "react"
 
-export default function ProductCard({name, image, quantity, id, getProd}: {name: string, image: string, quantity: string, id: string, getProd: Function}) {
+import { Product } from "@/lib/productInterface";
+
+export default function ProductCard({name, image, quantity, id, getProd}: {name: string, image: string, quantity: string, id: string, getProd: (products: Product[]) => void}) {
     const [update, setUpdate] = useState(false);
     const [product, setProduct] = useState({name,quantity});
 

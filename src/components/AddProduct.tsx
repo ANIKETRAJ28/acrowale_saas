@@ -1,12 +1,11 @@
 "use client"
 
 import axios from "axios";
-import { useSession } from "next-auth/react";
 import { useState } from "react"
+import { Product } from "@/lib/productInterface";
 
-export default function AddProduct({getProd}: {getProd: Function}) {
+export default function AddProduct({getProd}: {getProd: (products: Product[]) => void}) {
 
-    const session = useSession();
     const [product, setProduct] = useState({
         name: "",
         image: "",

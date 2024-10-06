@@ -1,7 +1,6 @@
 import { prismaClient } from "@/lib/db";
 import NEXT_AUTH from "@/lib/nextAuth";
 import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
 import { NextRequest, NextResponse } from "next/server";
 
 
@@ -20,7 +19,6 @@ export async function GET() {
             userId: user?.id
         }
     });
-    console.log(products);
     return NextResponse.json(products);
 }
 
@@ -49,7 +47,6 @@ export async function PUT(req: NextRequest) {
 export async function POST(req: NextRequest) {
     const data = await req.json();
     const session = await getServerSession(NEXT_AUTH);
-    console.log(session);
     if (!session) {
         return NextResponse.json({message: "unauthorized"})
     }

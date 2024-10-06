@@ -22,7 +22,6 @@ const NEXT_AUTH = {
                 });
                 if(existingUser) {
                     const passwordValidation = await bcrypt.compare(credentials.password, existingUser.password);
-                    console.log(passwordValidation);
                     if (passwordValidation) {
                         return {
                             id: existingUser.id,
@@ -40,8 +39,6 @@ const NEXT_AUTH = {
                         role: "ADMIN",
                     }
                 });
-
-                console.log(user);
                 return user;
             }
         })
