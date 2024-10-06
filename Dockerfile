@@ -17,7 +17,6 @@ COPY . .
 EXPOSE 3000
 
 # Install Prisma and run migrations
-RUN npx prisma migrate dev --name "init"
 RUN npx prisma generate
 
 # Start the application
